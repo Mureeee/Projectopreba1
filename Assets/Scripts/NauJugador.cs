@@ -8,7 +8,8 @@ public class NauJugador : MonoBehaviour
 
     Vector2 minPantalla, maxPantalla;
 
-    [SerializeField] private GameObject prefabProjectil; 
+    [SerializeField] private GameObject prefabProjectil;
+    [SerializeField] private GameObject prefabExplosio;
 
 
     // Start is called before the first frame update
@@ -66,5 +67,15 @@ public class NauJugador : MonoBehaviour
 
 
         transform.position = novaPos;
+    }
+    private void OnTriggerEnter2D(Collider2D objecteTocat)
+    {
+        if(objecteTocat.tag == "Numero")
+        {
+            GameObject explosio= Instantiate(prefabExplosio);
+            explosio.transform.position = transform.position;
+
+            Destroy(gameObject);
+        }
     }
 }
