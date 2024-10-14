@@ -36,5 +36,5 @@ public class ProjectilJugador : MonoBehaviour
             Destroy(gameObject);
         }
     }
-}
+} 
 
